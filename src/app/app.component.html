@@ -1,0 +1,46 @@
+<div class="ui center aligned container">
+  <h1>
+    {{title}}
+  </h1>
+  <div class="ui grid ">
+    <div class="eight wide column center aligned">
+        <img class="ui medium image" src="./assets/img/GoogleSheets.png">
+    </div>
+    <div class="eight wide column center aligned">
+      <img  class="ui small image" src="./assets/img/Angular.png">
+    </div>
+    <div class="sixteen wide column">
+        <button type="button" class="ui primary large button" (click)="fetchDataFromSheet()">Fetch Data from Google Sheet</button>
+        <div *ngIf="loading">loading...</div>
+    </div>
+  </div>
+</div>
+<div *ngIf="sheetData" class="ui center aligned container">
+  <h1>Student data from Google Sheets</h1>
+  <table class="ui selectable celled table">
+      <thead>
+          <tr>
+              <th>Student Name</th>
+              <th>Gender</th>
+              <th>Class Level</th>
+              <th>Home State</th>
+              <th>Major</th>
+              <th>Extracurricular Activity</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let student of sheetData;">
+              <td>{{student.Student_Name}}</td>
+              <td>{{student.Gender}}</td>
+              <td>{{student.Class_Level}}</td>
+              <td>{{student.Home_State}}</td>
+              <td>{{student.Major}}</td>
+              <td>{{student.Extracurricular_Activity}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+  <!-- <pre>{{sheetData | json}}</pre> -->
+
+
